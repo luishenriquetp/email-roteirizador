@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import MapPage from "./pages/map";
+import './index.css'
+
+export const REACT_APP_GOOGLE_API_KEY = "AIzaSyDu5NOnPCzkoGznCMcWa97FRynh12tp3q4-API";
+
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MapPage />
     </div>
   );
 }
