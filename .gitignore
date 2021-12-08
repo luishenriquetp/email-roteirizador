@@ -25,3 +25,6 @@ yarn-error.log*
 **/*.docx
 **/*.pdf
 **/*.pptx
+node_modules
+node_modules
+node_modules

@@ -9,7 +9,6 @@ export const Feedback = () => {
     const [textValue, setTextValue] = useState()
     const handleChange = (e) => setTextValue(e)
     const handleAddRate = (rate) => setRateValue(rate)
-    console.log(textValue)
 
     const values = [
         {
