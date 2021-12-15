@@ -9,12 +9,25 @@ export const Container = styled.div`
 
 export const Step = styled.div`
     width:128px;
-    height:124px;
+    height:128px;
     background-color:#37b872;
     border-radius:50%;
     display:grid;
     place-items: center;
+    @media (max-width:1250px) {
+        width:80px;
+        height:80px;
+    }
+    @media (max-width:740px) {
+        width:60px;
+        height:60px;
+    }
+    @media (max-width:520px) {
+        width:40px;
+        height:40px;
+    }
 `
+
 
 export const Line = styled.div`
     width:25%;

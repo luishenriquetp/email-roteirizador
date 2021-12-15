@@ -15,4 +15,11 @@ export const Footer = styled.div`
     line-height: 29px;
     text-align: center;
     color: #5D5D5D;
+
+    @media (max-width:740px) {
+        font-size: ${convertToRem(20)};
+    }
+    @media (max-width:520px) {
+        font-size: ${convertToRem(12)};
+    }
 `

@@ -6,13 +6,13 @@ import {Check} from '../../assets/check'
 export const Steps = () => (
     <S.Container>
         <S.Step>
-            <Smile/>
+            {/* <Smile/> */}
         </S.Step>
         <S.Step>
-            <Truck/>
+            {/* <Truck/> */}
         </S.Step>
         <S.Step>
-            <Check/>
+            {/* <Check/> */}
         </S.Step>
             <S.Line/>
         <S.LineGrey/>

@@ -3,7 +3,7 @@ import { convertToRem } from '../../utils/convertToRem'
 import {darken} from 'polished'
 
 export const Container = styled.div`
-    
+    width:100%;
 `
 
 export const Square = styled.div`
@@ -18,12 +18,31 @@ background: ${props => props.color};
 }
 border-radius: 10px;
 font-family:Lato, sans-serif,
-
-font-family: Hind Siliguri;
 font-style: normal;
 font-weight: bold;
 font-size: ${convertToRem(48)};
 line-height: 78px;
 color: #FFF;
+@media (max-width: 1160px) {
+    width:55px;
+    height:55px;
+    font-size: ${convertToRem(38)};
+    line-height: 55px;
+ }
+
+ @media (max-width: 930px) {
+    width:40px;
+    height:40px;
+    font-size: ${convertToRem(32)};
+    line-height: 40px;
+ }
+
+ @media (max-width: 750px) {
+    width:30px;
+    height:30px;
+    font-size: ${convertToRem(24)};
+    line-height: 30px;
+ }
 `
+
 

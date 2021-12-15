@@ -1,9 +1,9 @@
-import { Email } from '../../components/email'
+import { Base } from '../../components/base'
 
 import * as S from './styles'
 
 export const Rastreio = () => (
     <S.Container>
-                <Email/>
+                <Base map/>
     </S.Container>
 )

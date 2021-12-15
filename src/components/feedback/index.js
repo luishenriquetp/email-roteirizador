@@ -9,6 +9,7 @@ export const Feedback = () => {
     const [textValue, setTextValue] = useState()
     const handleChange = (e) => setTextValue(e)
     const handleAddRate = (rate) => setRateValue(rate)
+    console.log(textValue)
 
     const values = [
         {
@@ -60,7 +61,7 @@ export const Feedback = () => {
     return (
         <S.Container>
             <S.TitleCard>
-                EXPERIÊNCIA NO ATENDIMENTO
+                Experiência no Atendimento
             </S.TitleCard>
             <S.DescriptionCard>
             Com base na experiência em seu último atendimento, em uma escala de 0 a 10, o quanto você indicaria a Jamef Transportes para  algum amigo ou familiar?
