@@ -6,30 +6,20 @@ import {Exocard} from '../exocard/index'
 export const Container = styled(Exocard)``
 
 export const TitleCard = styled.div`
-text-align:center;
-    font-size:${convertToRem(64)};
+    margin-bottom:20px;
+    text-align:center;
+    font-size:${convertToRem(30)};
     color:#5D5D5D;
-    @media (max-width:1250px) {
-        font-size: ${convertToRem(50)};
-    }
-    @media (max-width:740px) {
-        font-size: ${convertToRem(40)};
-    }
     @media (max-width:520px) {
         font-size: ${convertToRem(28)};
     }
 `
 
 export const DescriptionCard = styled.div`
-    font-size:${convertToRem(36)};
+    font-size:${convertToRem(20)};
     color:#5F5F5F;
     margin-bottom:15px;
-    @media (max-width:1250px) {
-        font-size: ${convertToRem(28)};
-    }
-    @media (max-width:740px) {
-        font-size: ${convertToRem(20)};
-    }
+
     @media (max-width:520px) {
         font-size: ${convertToRem(12)};
     }
@@ -55,16 +45,16 @@ export const TextArea = styled.textarea`
     border: 1px solid #B9B9B9;
     box-sizing: border-box;
     border-radius: 20px;
-    padding: 20px 0 0 20px;
+    padding: 20px;
     font-size:12px;
     &::placeholder{
-        padding: 20px;
+        padding: 1px;
         @media(max-width:1250px) {
-            padding: 10px;
+            padding: 1px;
         }
     }
     @media(max-width:1250px) {
-            padding: 10px;
+            padding: 15px;
         }
 `
 
@@ -75,37 +65,46 @@ export const Column = styled.div`
     justify-content:center;
     position:relative;
 `
+
 export const Button = styled.div`
     width:100%;
     display:flex;
+    flex-direction:column;
     justify-content:flex-end;
+    align-items:flex-end;
     button {
-    border:none;
-    display:grid;
-    place-items:center;
-    font-weight:700px;
-    font-size:${convertToRem(36)};
-    color:#fff;
-    border-radius:10px;
-    background: #5DC96C;
-    cursor:pointer;
-    &:hover {
-        background: ${darken(0.1,'#5DC96C')};
-    }
-    width:210px;
-    height:80px;
-    margin-top:32px;
-    @media (max-width:1250px) {
-        width:150px;
+        width:110px;
         height:60px;
-        font-size:${convertToRem(28)};
+        margin-top:32px;
+        border:none;
+        display:grid;
+        place-items:center;
+        font-weight:700;
+        font-size:${convertToRem(24)};
+        font-family:Lato, sans-serif;
+        color:#fff;
+        border-radius:10px;
+        background: #5DC96C;
+        cursor:pointer;
+        &:hover {
+            background: ${darken(0.1,'#5DC96C')};    
+        }
+        @media (max-width:740px) {
+            width:80px;
+            height:40px;
+            font-size:${convertToRem(16)};
     }
-    @media (max-width:740px) {
-        width:150px;
-        height:50px;
-        font-size:${convertToRem(16)};
-    }
-    
-    }
-    
+}
 `
+
+export const Feedback = styled.div`
+margin-top:10px;
+color:${props=>props.success ? 'green':'red'};
+`
+
+export const Loading = styled.div`
+
+`
+
+
+

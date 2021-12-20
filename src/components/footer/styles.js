@@ -11,14 +11,11 @@ export const Footer = styled.div`
     font-family: Inter;
     font-style: normal;
     font-weight: 300;
-    font-size: ${convertToRem(24)};
+    font-size: ${convertToRem(20)};
     line-height: 29px;
     text-align: center;
     color: #5D5D5D;
 
-    @media (max-width:740px) {
-        font-size: ${convertToRem(20)};
-    }
     @media (max-width:520px) {
         font-size: ${convertToRem(12)};
     }

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { convertToRem } from '../../utils/convertToRem'
 
 export const Container = styled.div`
-margin-top: 226px;
+margin-top: 200px;
 
 `
 

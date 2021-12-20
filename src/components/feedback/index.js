@@ -1,62 +1,29 @@
 import { useState } from 'react'
-import {BsCheck} from 'react-icons/bs'
 import { Rate } from '../rate'
+import {values} from './constants'
+import { postFeedback } from '../../services/feedback/postFeedback'
 import * as S from './styles'
+import { css } from "@emotion/react";
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 
 export const Feedback = () => {
     const [rateValue, setRateValue] = useState()
     const [textValue, setTextValue] = useState()
+    const [feedback, setFeedback] = useState()
+    const [loading, setLoading] = useState(false)
     const handleChange = (e) => setTextValue(e)
     const handleAddRate = (rate) => setRateValue(rate)
-    console.log(textValue)
 
-    const values = [
-        {
-            color:"#B72825",
-            value:0
-        },
-        {
-            color:"#D62027",
-            value:1
-        },
-        {
-            color:"#F05223",
-            value:2
-        },
-        {
-            color:"#F36F21",
-            value:3
-        },
-        {
-            color:"#FAA823",
-            value:4
-        },
-        {
-            color:"#FFCA27",
-            value:5
-        },
-        {
-            color:"#ECDB12",
-            value:6
-        },
-        {
-            color:"#E8E73D",
-            value:7
-        },
-        {
-            color:"#C5D92D",
-            value:8
-        },
-        {
-            color:"#AFD136",
-            value:9
-        },
-        {
-            color:"#5DC96C",
-            value:10
-        },
-    ]
+    const handlePostFeedback = () => {
+        postFeedback({rateValue, textValue, setFeedback, setLoading}) 
+    }
+
+    const override = css`
+    border: 3px solid #fff;
+    
+`;
 
     return (
         <S.Container>
@@ -70,10 +37,12 @@ export const Feedback = () => {
             <S.RateCard>
                 {values.map(item => {
                     const selected = rateValue === item.value
+                    console.log(selected)
                     return (
                         <S.Column>        
-                            {selected && <BsCheck size={50} style={{position:'absolute',top:'-50px'}} color={item.color}/>}
+                            
                             <Rate
+                                selected={rateValue === item.value}
                                 color={item.color}
                                 value={item.value}
                                 onClick={() => handleAddRate(item.value)}/>
@@ -86,8 +55,20 @@ export const Feedback = () => {
                 placeholder='Em poucas palavras, descreva o que motivou sua nota sobre a Experiência (opcional)' 
                 onChange={(e) => handleChange(e.target.value)}/>
             <S.Button>
-                <button>Enviar</button>
+                <button onClick={handlePostFeedback}>
+                {loading ?
+                <S.Loading>
+                    <ClipLoader color='#5D5D5D' loading={loading} css={override} size={30} />
+                </S.Loading> : 'Enviar'
+                }
+                </button>
+                
+                <S.Feedback success={feedback==='Feedback enviado com sucesso!'}>
+                    
+                    {feedback}
+                </S.Feedback>
             </S.Button>
+            
     </S.Container>
 
     )
