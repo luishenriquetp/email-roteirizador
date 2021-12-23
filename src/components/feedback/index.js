@@ -31,7 +31,7 @@ export const Feedback = () => {
                 Experiência no Atendimento
             </S.TitleCard>
             <S.DescriptionCard>
-            Com base na experiência em seu último atendimento, em uma escala de 0 a 10, o quanto você indicaria a Jamef Transportes para  algum amigo ou familiar?
+            Com base na experiência em seu último atendimento, em uma escala de 0 a 10, o quanto você indicaria a Jamef Transportes para outra pessoa?
             </S.DescriptionCard>
             
             <S.RateCard>
@@ -52,7 +52,7 @@ export const Feedback = () => {
                 })}
             </S.RateCard>
             <S.TextArea
-                placeholder='Em poucas palavras, descreva o que motivou sua nota sobre a Experiência (opcional)' 
+                placeholder='Em poucas palavras, descreva o que motivou sua nota sobre a sua experiência (opcional)' 
                 onChange={(e) => handleChange(e.target.value)}/>
             <S.Button>
                 <button onClick={handlePostFeedback}>

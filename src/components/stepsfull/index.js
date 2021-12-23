@@ -3,7 +3,7 @@ import {Smile} from '../../assets/smile'
 import {Truck} from '../../assets/truck'
 import {Check} from '../../assets/check'
 
-export const Steps = (opacity) => (
+export const StepsFull = () => (
     <S.Container>
         
         <S.Step>
@@ -26,10 +26,10 @@ export const Steps = (opacity) => (
         </S.Step>
 
         <S.Step>
-            <S.Icon opacity={opacity}>
+            <S.Icon>
                 <Check/>
             </S.Icon>
-            <S.Text opacity={opacity}>
+            <S.Text>
                 <p>Entrega finalizada</p>
             </S.Text>
         </S.Step>

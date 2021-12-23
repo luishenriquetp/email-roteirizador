@@ -36,3 +36,17 @@
   outline: none;
   text-overflow: ellipses;
 }
+
+.error {
+  font-family: Lato;
+    font-weight: 700;
+    font-size: 30px;
+    text-align:center;
+    margin:10px 0px;
+    color:#ff0000;
+
+
+    @media (max-width:520px) {
+        font-size: 28px;
+    }
+}

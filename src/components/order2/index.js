@@ -3,7 +3,7 @@ import * as S from './styles'
 import { BsFileEarmarkPost } from "react-icons/bs";
 
 
-export const Order = (button) => (
+export const Order2 = (button) => (
     <S.Container>
             <S.Title>
                 Dados do Pedido
@@ -63,12 +63,6 @@ export const Order = (button) => (
                 </S.DescriptionCard1> 
                 </S.RightCard1>
             </Card>
-
-            {button && (
-                <S.Button>
-                    <BsFileEarmarkPost/>Comprovante de entrega
-                </S.Button>
-            )}
 
             
 

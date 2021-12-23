@@ -17,6 +17,7 @@ export const TitleCard = styled.div`
 
 export const DescriptionCard = styled.div`
     font-size:${convertToRem(20)};
+    text-align:center;
     color:#5F5F5F;
     margin-bottom:15px;
 
@@ -73,14 +74,14 @@ export const Button = styled.div`
     justify-content:flex-end;
     align-items:flex-end;
     button {
-        width:110px;
-        height:60px;
+        width:90px;
+        height:45px;
         margin-top:32px;
         border:none;
         display:grid;
         place-items:center;
         font-weight:700;
-        font-size:${convertToRem(24)};
+        font-size:${convertToRem(18)};
         font-family:Lato, sans-serif;
         color:#fff;
         border-radius:10px;
@@ -105,6 +106,3 @@ color:${props=>props.success ? 'green':'red'};
 export const Loading = styled.div`
 
 `
-
-
-

@@ -1,4 +1,4 @@
-import {api, apiKey} from './feedback'
+import {api, apiKey} from './api'
 
 export const postFeedback = async({rateValue, textValue, setFeedback, setLoading}) => {
   

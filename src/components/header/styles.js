@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100%;
   z-index: 3;
   background: #C32424;
-  height:111px;
+  height:70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,14 +28,14 @@ export const Container = styled.div`
 `;
 
 export const Logo = styled.div`
-width: 232px;
+width: 180px;
 height: 100%;
 margin-top: 20px;
 
 @media screen and (max-width: 560px) {
   width: 180px;
   height: 80px;
-  margin-top: 0;
+  margin-top: 20;
 }
 
 img {
@@ -47,6 +47,9 @@ img {
 export const Items = styled.div`
 display: flex;
 align-items: center;
+a {
+  color:#fff;
+}
 
 @media screen and (max-width: 450px) {
   margin: 10px 0;

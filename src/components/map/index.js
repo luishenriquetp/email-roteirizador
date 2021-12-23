@@ -1,63 +1,54 @@
+/* eslint-disable no-undef */
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   GoogleMap,
   Marker,
   LoadScript,
   DirectionsService,
-  DirectionsRenderer
+  DirectionsRenderer,
 } from "@react-google-maps/api";
-import { REACT_APP_GOOGLE_API_KEY } from "../../app/App";
 import "./map.css";
-import { getLocation } from "../../services/map/getLocation";
-import {position} from './constants'
-import { traceRoute } from "../../services/map/traceRoute";
+import { getLocation } from "../../services/location/getLocation";
+import { position } from './constants'
 
 const MapPage = () => {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
-  const [response, setResponse] =useState(null);
-
-
+  const [responseAPI, setResponseAPI] = useState(null);
+  const [errorAPI, setErrorAPI] = useState(null);
 
 useEffect(() => {
-  
-  getLocation({setOrigin, setDestination})
+  getLocation({setOrigin,setDestination})
 },[])
-
-/* useEffect(() => {
-  
-  traceRoute({origin, destination})
-},[origin, destination]) */
-
-  const directionsRendererOptions = useMemo(() => {
-    return {
-      directions: response,
-    };
-  }, [response]);
 
   const directionsServiceOptions =
     useMemo(() => {
       return {
         origin,
         destination,
-        travelMode: "DRIVING",
+        travelMode: 'DRIVING'
       };
     }, [origin, destination]);
 
-  const directionsCallback = useCallback((res)=>{
-    if (res !== null && res.status === 'OK') {
-      setResponse(res)
+  const directionsCallback = useCallback((response)=>{
+    if (response !== null && response.status === 'OK') {
+      setResponseAPI(response)
     }else{
-      console.log(res)
+      setErrorAPI('Erro ao traçar a rota.')
     }
   },[])
 
+  const directionsRendererOptions = useMemo(() => {
+    return {
+      directions: responseAPI,
+    };
+  }, [responseAPI]);
+
   return (
     <div className="map">
-
       <LoadScript
-        googleMapsApiKey={REACT_APP_GOOGLE_API_KEY}
-        libraries={["places"]}
+        googleMapsApiKey='AIzaSyDhU6foApXRtkuTo4_aT1RBi6Ek4ItUk8c'
+        libraries={[""]}
       >
 
         <GoogleMap
@@ -65,21 +56,22 @@ useEffect(() => {
           center={position}
           zoom={9}
         >
-
-          {!response && origin && <Marker position={origin} />}
-          {!response && destination && <Marker position={destination} />}
+          {!responseAPI && origin && <Marker position={origin} />}
+          {!responseAPI && destination && <Marker position={destination} />}
 
           {origin && destination && (
-            <DirectionsService callback={directionsCallback}options={directionsServiceOptions}/>
+            <DirectionsService options={directionsServiceOptions} callback={directionsCallback}/>
           )}
 
-          {response && directionsRendererOptions && (
+          {responseAPI && directionsRendererOptions && (
             <DirectionsRenderer options={directionsRendererOptions} />
           )}
 
         </GoogleMap>
       </LoadScript>
-      
+      <div class="error">
+        {errorAPI}
+      </div>
     </div>
   );
 };

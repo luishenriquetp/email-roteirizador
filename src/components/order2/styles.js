@@ -11,7 +11,7 @@ font-family: Lato;
     font-weight: 700;
     font-size: ${convertToRem(30)};
     text-align:center;
-    margin-bottom:25px;
+    margin-bottom:18px;
     color:#5D5D5D;
 
 

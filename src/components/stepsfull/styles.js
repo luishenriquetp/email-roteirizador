@@ -6,7 +6,7 @@ export const Container = styled.div`
     display:flex;
     align-items:center;
     justify-content:space-between;
-    margin:20px auto;
+    margin:70px auto;
 `
 
 export const Step = styled.div`
@@ -19,7 +19,7 @@ export const Step = styled.div`
 export const Line = styled.div`
     
     max-width:600px;
-    width:300px;
+    width:600px;
     height:3px;
     background-color:#37b872;
     position:absolute;
@@ -27,7 +27,7 @@ export const Line = styled.div`
     margin-bottom:21px;
     @media (max-width:740px) {
         margin-bottom:40px;
-        width:50%;
+        width:100%;
     }
 `
 export const LineGrey = styled.div`
@@ -51,7 +51,6 @@ export const Icon = styled.div`
     border-radius:50%;
     display:grid;
     place-items: center;
-    background-color:${props => props.opacity && '#E7F7EE'};
     margin-bottom:10px;
 
 
@@ -64,7 +63,6 @@ export const Icon = styled.div`
 export const Text = styled.div`
     width:90px;
     color:#5D5D5D;
-    color:${props => props.opacity && '#eeeeee'};
     text-align:center;
     font-size:14px;
     font-family:Lato, sans-serif;

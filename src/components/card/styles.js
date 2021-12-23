@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 display:${props => props.flex && 'flex'};
-justify-content:${props => props.flex && 'space-between'};
+justify-content:${props => props.flex && 'left'};
 font-family: Lato, sans-serif;
 font-weight: 700;
 background: rgba(255, 255, 255, 0.54);

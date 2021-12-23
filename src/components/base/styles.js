@@ -3,7 +3,7 @@ import { convertToRem } from '../../utils/convertToRem'
 import {Exocard} from '../exocard/index'
 
 export const Container = styled.div`
-margin-top: 200px;
+margin-top: 100px;
 
 `
 
@@ -32,7 +32,7 @@ export const MapTitle = styled.div`
     font-weight: 700;
     font-size: ${convertToRem(30)};
     text-align:center;
-    margin-bottom:18px;
+    margin-bottom:25px;
     color:#5D5D5D;
 
     @media (max-width:520px) {
