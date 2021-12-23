@@ -8,18 +8,11 @@ import {
   DirectionsRenderer,
 } from "@react-google-maps/api";
 import "./map.css";
-import { getLocation } from "../../services/location/getLocation";
 import { position } from './constants'
 
-const MapPage = () => {
-  const [origin, setOrigin] = useState(null);
-  const [destination, setDestination] = useState(null);
+const MapPage = ({origin, destination}) => {
   const [responseAPI, setResponseAPI] = useState(null);
   const [errorAPI, setErrorAPI] = useState(null);
-
-useEffect(() => {
-  getLocation({setOrigin,setDestination})
-},[])
 
   const directionsServiceOptions =
     useMemo(() => {

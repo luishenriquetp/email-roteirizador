@@ -3,7 +3,10 @@ import * as S from './styles'
 import { BsFileEarmarkPost } from "react-icons/bs";
 
 
-export const Order = (button) => (
+export const Order = ({button, clientInfo}) => {
+    
+return(
+    
     <S.Container>
             <S.Title>
                 Dados do Pedido
@@ -13,19 +16,19 @@ export const Order = (button) => (
                     Nº do Pedido
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                07001234561
+                {clientInfo?.numeroDocumento || 'Não encontrado'}
                 </S.DescriptionCard1>
                 <S.TitleCard1>
                     Cliente
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                    N/A
+                    {clientInfo?.nomeCliente || 'Não encontrado'}
                 </S.DescriptionCard1>
                 <S.TitleCard1>
                     Chegada
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                16/11/2021 às 17:30
+                {clientInfo?.horaPrevisao || 'Não encontrado'}
                 </S.DescriptionCard1>
             </Card>
 
@@ -41,7 +44,7 @@ export const Order = (button) => (
                     Motorista
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                    Pedro Lima
+                    {clientInfo?.motorista || 'Não encontrado'}
                 </S.DescriptionCard1> 
                 </S.LeftCard1>
                 
@@ -50,17 +53,9 @@ export const Order = (button) => (
                 Local da Coleta
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                Rua: R. Dr. José Américo C. Bahia, 1810
+                {clientInfo?.endereco || 'Não encontrado'}
                 </S.DescriptionCard1> 
-                <S.DescriptionCard1>
-                Bairro: Industrial
-                </S.DescriptionCard1> 
-                <S.DescriptionCard1>
-                Cidade/UF: Contatem - MG
-                </S.DescriptionCard1> 
-                <S.DescriptionCard1>
-                CEP:32210130
-                </S.DescriptionCard1> 
+
                 </S.RightCard1>
             </Card>
 
@@ -69,10 +64,8 @@ export const Order = (button) => (
                     <BsFileEarmarkPost/>Comprovante de entrega
                 </S.Button>
             )}
-
-            
-
-
-
     </S.Container>
 )
+}
+
+

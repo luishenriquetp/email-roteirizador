@@ -1,6 +1,6 @@
 import {api,apiKey} from './api'
 
-export const getLocation = async ({ setOrigin,setDestination}) => {
+export const getLocation = async ({ setOrigin,setDestination,setClientInfo}) => {
   const response = await api.get('/8091f9c05f7711ecb5bee50453d7e27d', { headers: {
     'x-api-key': apiKey
   }})
@@ -11,10 +11,10 @@ export const getLocation = async ({ setOrigin,setDestination}) => {
   const destinationLat = response.data.message.geoLocalizacaoCliente.latitude
   const destinationLong = response.data.message.geoLocalizacaoCliente.longitude
   const destination = `${destinationLat},${destinationLong}`
+
+  const clientInfo = response.data.message
   
-  setOrigin(origin)
-  //setOrigin(origin)
-  //setDestination(destination)
-  
+  setOrigin(origin) 
   setDestination(destination)
+  setClientInfo(clientInfo)
 }
