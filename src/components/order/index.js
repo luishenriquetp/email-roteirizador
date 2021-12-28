@@ -1,34 +1,46 @@
 import { Card } from '../card'
 import * as S from './styles'
-import { BsFileEarmarkPost } from "react-icons/bs";
+import { BsFileEarmarkPost } from "react-icons/bs"
+import {useState, useEffect} from 'react'
+import {encryptName} from './encryptName'
 
 
 export const Order = ({button, clientInfo}) => {
     
+const [nameEncrypt, setNameEncrypt] = useState()
+
+    useEffect(() => {
+        clientInfo && setNameEncrypt(encryptName(clientInfo?.nomeCliente))
+    }, [clientInfo])
+
+
 return(
     
     <S.Container>
-            <S.Title>
+        {clientInfo?.nomeCliente && (
+        <>
+        <S.Title>
                 Dados do Pedido
+                
             </S.Title>
             <Card>
             <S.TitleCard1>
                     Nº do Pedido
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                {clientInfo?.numeroDocumento || 'Não encontrado'}
+                {clientInfo?.numeroDocumento.substring(2,11) || 'Não encontrado'}
                 </S.DescriptionCard1>
                 <S.TitleCard1>
                     Cliente
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                    {clientInfo?.nomeCliente || 'Não encontrado'}
+                    {nameEncrypt || 'Não encontrado'}
                 </S.DescriptionCard1>
                 <S.TitleCard1>
                     Chegada
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                {clientInfo?.horaPrevisao || 'Não encontrado'}
+                {new Date(clientInfo?.horaPrevisao).toLocaleString('pt-br') || 'Não encontrado'}
                 </S.DescriptionCard1>
             </Card>
 
@@ -53,17 +65,28 @@ return(
                 Local da Coleta
                 </S.TitleCard1>
                 <S.DescriptionCard1>
-                {clientInfo?.endereco || 'Não encontrado'}
+                {clientInfo?.endereco.rua || 'Não encontrado'}
+                </S.DescriptionCard1>
+                <S.DescriptionCard1>
+                {clientInfo?.endereco.bairro || 'Não encontrado'}
                 </S.DescriptionCard1> 
-
+                <S.DescriptionCard1>
+                CEP: {clientInfo?.endereco.cep.substring(0,5).concat('-').concat(clientInfo?.endereco.cep.substring(5,8)) || 'Não encontrado'}
+                </S.DescriptionCard1> 
+                <S.DescriptionCard1>
+                {clientInfo?.endereco.ufCidade || 'Não encontrado'}
+                </S.DescriptionCard1> 
                 </S.RightCard1>
             </Card>
 
             {button && (
-                <S.Button>
+                <S.Button href={button} target='_blank'>
                     <BsFileEarmarkPost/>Comprovante de entrega
                 </S.Button>
             )}
+            </>
+        )}
+            
     </S.Container>
 )
 }

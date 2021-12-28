@@ -16,32 +16,42 @@ export const Base = ({map}) => {
     const [origin, setOrigin] = useState(null);
     const [destination, setDestination] = useState(null);
     const [clientInfo, setClientInfo] = useState(null);
+    const [error, setError] = useState(false);
     
     useEffect(() => {
         
-        getLocation({setOrigin, setDestination, setClientInfo})
+        getLocation({setOrigin, setDestination, setClientInfo, setError})
     },[])
 
-    console.log(clientInfo)
+    const firstName = clientInfo?.nomeCliente?.split(" ")
 
     return(
             <S.Container>
-            <Header/>       
-            <S.Content>
+            <Header/>   
+                <S.Content>
             {map ? (
                 <S.MapContainer>
-                    <S.MapTitle>
-                    Olá {clientInfo?.nomeClient|| 'Não encontrado'}, seu pedido nº {clientInfo?.numeroDocumento || 'Não encontrado'} já está a caminho!
-                    </S.MapTitle>
-                    <S.Map>
-                        <MapPage origin={origin} destination={destination}/>
-                    </S.Map>
-                    <S.StepsContainer>
-                        <Steps/>
-                    </S.StepsContainer>
-                    <S.Data>
-                        <Order clientInfo={clientInfo}/>
-                    </S.Data>
+                {error?
+                    <div>
+                        <p>Erro</p>
+                    </div> : (
+                    <>
+                        <S.MapTitle>
+                            Olá {firstName && firstName[0] || 'Não encontrado'}, seu pedido nº {clientInfo?.numeroDocumento?.substring(2,11) || 'Não encontrado'} já está a caminho!
+                        </S.MapTitle>
+                        <S.Map>
+                            <MapPage origin={origin} destination={destination}/>
+                        </S.Map>
+                        <S.StepsContainer>
+                            <Steps/>
+                        </S.StepsContainer>
+                        <S.Data>
+                            <Order clientInfo={clientInfo}/>
+                        </S.Data>
+                    </>
+                    )
+                }
+                    
                 </S.MapContainer>
             
             ):(
@@ -49,7 +59,7 @@ export const Base = ({map}) => {
                     <Feedback/>
                     <StepsFull/>
                     <S.Data>
-                        <Order button/>
+                        <Order clientInfo={clientInfo} button={clientInfo?.linkAssinatura}/>
                     </S.Data>
                 </>
             )}

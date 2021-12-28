@@ -54,7 +54,8 @@ export const RightCard1 = styled.div`
     padding-left:15px;
 `
 
-export const Button = styled.div`
+export const Button = styled.a`
+    text-decoration:none;
     display:flex;
     align-items:center;
     justify-content:center;
