@@ -1,15 +1,15 @@
 import {api, apiKey} from './api'
 
-export const postFeedback = async({rateValue, textValue, setFeedback, setLoading}) => {
-  
+export const postFeedback = async({rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie}) => {
+
   const body = {
     'pesquisa':{
-      "filialOrigem": "10",
-      "documento": "021220504",
-      "serie": "1",
+      "filialOrigem": valueFilial,
+      "documento": '123456700',
+      "serie": valueSerie,
       "notaAvaliacao": rateValue,
       "motivoNota": textValue
-  }
+    }
   }
   try {
     setLoading(true)
@@ -20,9 +20,14 @@ export const postFeedback = async({rateValue, textValue, setFeedback, setLoading
     })
     setLoading(false)
     setFeedback('Feedback enviado com sucesso!')
-  } catch {
+  } catch(error) {
     setLoading(false)
-    setFeedback('Erro ao enviar feedback.')
+    if(error.response.status === 400) {
+      setFeedback('Erro ao enviar o feedback.')
+    }
+    if(error.response.status === 500) {
+      setFeedback('Erro interno no servidor. Tente novamente em alguns instantes.')
+    }
   }
-  }
-  
+
+}
