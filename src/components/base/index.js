@@ -8,6 +8,7 @@ import { Feedback } from '../feedback';
 import { Footer } from '../footer';
 import MapPage from '../map';
 import { getLocation } from '../../services/location/getLocation';
+import GridLoader from 'react-spinners/GridLoader';
 
 export function Base({ map }) {
   const [origin, setOrigin] = useState(null);
@@ -49,37 +50,37 @@ export function Base({ map }) {
           <S.MapContainer>
             {loading ? (
               <S.ContainerError>
-              <div>Carregando...</div>
+                <S.Loading>Carregando...</S.Loading>
+                <GridLoader color='#C32424' />
               </S.ContainerError>
             ) : (
               <>
                 {error
-                    ? <S.ContainerError>
-
-                      <p>Erro ao carregar as informações.</p>
-                    </S.ContainerError>
-                    : (
-                        <>
-                        <S.MapTitle>
-                        Olá 
+                  ? <S.ContainerError>
+                    <p>Erro ao carregar as informações.</p>
+                  </S.ContainerError>
+                  : (
+                    <>
+                      <S.MapTitle>
+                        Olá
                         {' '}
                         {firstName && firstName[0] || 'Não encontrado'}
                         , seu pedido nº
                         {clientInfo?.numeroDocumento?.substring(2, 11) || 'Não encontrado'}
                         {' '}
                         já está a caminho!
-                          </S.MapTitle>
-                        <S.Map>
+                      </S.MapTitle>
+                      <S.Map>
                         <MapPage origin={origin} destination={destination} />
                       </S.Map>
-                        <S.StepsContainer>
+                      <S.StepsContainer>
                         <Steps />
                       </S.StepsContainer>
-                        <S.Data>
+                      <S.Data>
                         <Order clientInfo={clientInfo} />
                       </S.Data>
-                      </>
-                    )}
+                    </>
+                  )}
               </>
             )}
           </S.MapContainer>

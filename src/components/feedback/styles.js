@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import { convertToRem } from '../../utils/convertToRem'
-import {darken} from 'polished'
-import {Exocard} from '../exocard/index'
+import { darken } from 'polished'
+import { Exocard } from '../exocard/index'
 
-export const Container = styled(Exocard)``
+export const Container = styled.div``
+
+export const FeedbackContainer = styled(Exocard)``
 
 export const TitleCard = styled.div`
     margin-bottom:20px;
@@ -89,7 +91,7 @@ export const Button = styled.div`
         background: #5DC96C;
         cursor:pointer;
         &:hover {
-            background: ${darken(0.1,'#5DC96C')};    
+            background: ${darken(0.1, '#5DC96C')};    
         }
         @media (max-width:740px) {
             width:80px;
@@ -101,7 +103,7 @@ export const Button = styled.div`
 
 export const Feedback = styled.div`
 margin-top:10px;
-color:${props=>props.success ? 'green':'red'};
+color:${props => props.success ? 'green' : 'red'};
 `
 
 export const Loading = styled.div`

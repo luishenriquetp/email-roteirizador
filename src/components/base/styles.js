@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { convertToRem } from '../../utils/convertToRem'
-import {Exocard} from '../exocard/index'
+import { Exocard } from '../exocard/index'
 
 export const Container = styled.div`
 margin-top: 100px;
@@ -53,11 +53,17 @@ export const StepsContainer = styled.div`
     position:relative;
 `
 
+export const Loading = styled.div`
+margin-bottom: 20px;
+`
+
 export const ContainerError = styled.div`
-    display:grid;
-    place-items:center;
-    height: 75vh;
-    font-size:30px;
-    font-family:Lato, sans-serif;
-    color:#5D5D5D;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 75vh;
+   font-size:30px;
+   font-family:Lato, sans-serif;
+   color:#5D5D5D;
 `
