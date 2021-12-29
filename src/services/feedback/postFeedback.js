@@ -5,7 +5,7 @@ export const postFeedback = async({rateValue, textValue, setFeedback, setLoading
   const body = {
     'pesquisa':{
       "filialOrigem": valueFilial,
-      "documento": '123456700',
+      "documento": valueDocumento,
       "serie": valueSerie,
       "notaAvaliacao": rateValue,
       "motivoNota": textValue
@@ -22,12 +22,7 @@ export const postFeedback = async({rateValue, textValue, setFeedback, setLoading
     setFeedback('Feedback enviado com sucesso!')
   } catch(error) {
     setLoading(false)
-    if(error.response.status === 400) {
-      setFeedback('Erro ao enviar o feedback.')
-    }
-    if(error.response.status === 500) {
-      setFeedback('Erro interno no servidor. Tente novamente em alguns instantes.')
-    }
+    setFeedback(error?.response?.data?.title)
   }
 
 }

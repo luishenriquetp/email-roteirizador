@@ -1,12 +1,12 @@
 import React from 'react'
 import * as S from './styles'
 import Logo from '../../assets/logo.png'
-import {TiSocialFacebook,TiSocialLinkedin,TiSocialInstagram,TiSocialTwitter} from 'react-icons/ti'
+import {TiSocialFacebook,TiSocialLinkedin,TiSocialInstagram} from 'react-icons/ti'
 
 export const Header = () => (
   <S.Container>
           <S.Logo>
-            <S.Item>
+              <S.Item>
               <a href='https://www.jamef.com.br/contato' target="_blank"><img src={Logo} /></a>
             </S.Item>
           </S.Logo>

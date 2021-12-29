@@ -11,38 +11,22 @@ export const Container = styled.div`
 
 export const Step = styled.div`
     text-align:center;
-    height:105px;
-
-    
+    height:105px; 
+    position: relative;   
 `
 
 export const Line = styled.div`
-    
     max-width:600px;
     width:600px;
     height:3px;
     background-color:#37b872;
-    position:absolute;
-    z-index:-1;
+    position: absolute;
     margin-bottom:21px;
     @media (max-width:740px) {
         margin-bottom:40px;
-        width:100%;
+        width:80%;
     }
 `
-export const LineGrey = styled.div`
-    width:100%;
-    max-width:600px;
-    height:3px;
-    background-color:#E7F7EE;
-    position:absolute;
-    z-index:-2;
-    margin-bottom:21px;
-    @media (max-width:740px) {
-        margin-bottom:40px;
-        width:90%;
-    }
-    `
 
 export const Icon = styled.div`
     width:90px;
@@ -52,7 +36,6 @@ export const Icon = styled.div`
     display:grid;
     place-items: center;
     margin-bottom:10px;
-
 
     @media (max-width:740px) {
         width:60px;

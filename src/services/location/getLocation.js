@@ -1,7 +1,8 @@
 import { api, apiKey } from './api'
 
-export const getLocation = async ({ token, setOrigin, setDestination, setClientInfo, setError }) => {
+export const getLocation = async ({ token, setOrigin, setDestination, setClientInfo, setError,setLoading }) => {
   try {
+    setLoading(true)
     const response = await api.get(`/${token}`, {
       headers: {
         'x-api-key': apiKey
@@ -16,11 +17,11 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
     const destination = { lat: parseFloat(destinationLat), lng: parseFloat(destinationLong) }
 
     const clientInfo = response.data.message
-
-
+    
     setOrigin(origin)
     setDestination(destination)
     setClientInfo(clientInfo)
+    setLoading(false)
   }
   catch (error) {
     if (error.response.status) {

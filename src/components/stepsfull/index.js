@@ -5,7 +5,7 @@ import {Check} from '../../assets/check'
 
 export const StepsFull = () => (
     <S.Container>
-        
+        <S.Line/>
         <S.Step>
             <S.Icon>
                 <Smile/>                
@@ -33,13 +33,6 @@ export const StepsFull = () => (
                 <p>Entrega finalizada</p>
             </S.Text>
         </S.Step>
-
-        <S.Line/>
-
-        <S.LineGrey/>
-
-        
-
     </S.Container>
     
 )

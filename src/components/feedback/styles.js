@@ -12,6 +12,7 @@ export const TitleCard = styled.div`
     color:#5D5D5D;
     @media (max-width:520px) {
         font-size: ${convertToRem(28)};
+        margin-top: 50px;
     }
 `
 
@@ -106,3 +107,4 @@ color:${props=>props.success ? 'green':'red'};
 export const Loading = styled.div`
 
 `
+export const Data = styled(Exocard)``

@@ -6,7 +6,6 @@ export const getLocation = async({token, setOrigin, setDestination}) => {
             key: apiKey
           }
         })
-        console.log(response)
         setOrigin(response.data.routes[0].legs[0].start_location)
         setDestination(response.data.routes[0].legs[0].end_location)
       }
