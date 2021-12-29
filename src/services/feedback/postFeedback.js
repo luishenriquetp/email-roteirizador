@@ -8,13 +8,13 @@ export const postFeedback = async({rateValue, textValue, setFeedback, setLoading
       "documento": valueDocumento,
       "serie": valueSerie,
       "notaAvaliacao": rateValue,
-      "motivoNota": textValue
+      "motivoNota": textValue || ''
     }
   }
   try {
     setLoading(true)
     await api.post('', body , {
-      params: {
+      headers: {
         'x-api-key': apiKey
       }
     })

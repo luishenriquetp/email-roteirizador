@@ -36,7 +36,7 @@ export const MapTitle = styled.div`
     color:#5D5D5D;
 
     @media (max-width:520px) {
-        font-size: ${convertToRem(28)};
+        font-size: ${convertToRem(20)};
     }
 `
 export const Map = styled.div`
@@ -51,4 +51,13 @@ export const StepsContainer = styled.div`
     display:flex;
     align-items:center;
     position:relative;
+`
+
+export const ContainerError = styled.div`
+    display:grid;
+    place-items:center;
+    height: 75vh;
+    font-size:30px;
+    font-family:Lato, sans-serif;
+    color:#5D5D5D;
 `

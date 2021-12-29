@@ -12,14 +12,14 @@ export const Header = () => (
           </S.Logo>
           <S.Items>
             <S.Item>
-              <a href='https://www.facebook.com/jamefencomendasurgentes/' target="_blank"><TiSocialFacebook size='35'/></a>
+              <a href='https://www.facebook.com/jamefencomendasurgentes/' target="_blank"><TiSocialFacebook /></a>
             </S.Item>
 
             <S.Item>
-              <a href='https://www.linkedin.com/company/jamef-encomendas-urg/' target="_blank"><TiSocialLinkedin size='35' /></a>
+              <a href='https://www.linkedin.com/company/jamef-encomendas-urg/' target="_blank"><TiSocialLinkedin  /></a>
             </S.Item>
             <S.Item>
-            <a href='https://www.instagram.com/jamef_encomendas_urgentes/' target="_blank"><TiSocialInstagram size='35' /></a>
+            <a href='https://www.instagram.com/jamef_encomendas_urgentes/' target="_blank"><TiSocialInstagram  /></a>
             </S.Item>
           </S.Items>
   </S.Container>

@@ -62,7 +62,7 @@ export const Order = ({button, clientInfo, link}) => {
 
             <S.RightCard1>
             <S.TitleCard1>
-            Local da Coleta
+            Local da {clientInfo?.tipoServico || 'Não encontrado'}
             </S.TitleCard1>
             <S.DescriptionCard1>
             {clientInfo?.endereco.rua || 'Não encontrado'}

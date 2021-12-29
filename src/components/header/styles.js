@@ -15,15 +15,13 @@ export const Container = styled.div`
   padding: 0 80px;
 
     @media screen and (max-width: 991px) {
-      width: calc(100% + 30px);
       margin-left: -15px;
     }
     @media screen and (max-width: 610px) {
      padding: 0 30px;
     }
     @media screen and (max-width: 450px) {
-      flex-direction: column;
-      height: 150px;
+      height: 70px;
     }
 `;
 
@@ -35,7 +33,17 @@ margin-top: 20px;
 @media screen and (max-width: 560px) {
   width: 180px;
   height: 80px;
-  margin-top: 20;
+  margin-top: 35px;
+}
+
+@media screen and (max-width: 420px) {
+  width: 150px;
+  height: 80px;
+  margin-top: 40px;
+}
+@media screen and (max-width: 360px) {
+    width:120px;
+  height:70px;
 }
 
 img {
@@ -59,4 +67,17 @@ a {
 export const Item = styled.li`
 margin: 0 10px;
 list-style-type: none;
+svg {
+  width:35px;
+  height:35px;
+  @media screen and (max-width: 420px) {
+    width:25px;
+  height:25px;
+}
+
+@media screen and (max-width: 360px) {
+    width:20px;
+  height:20px;
+}
+}
 `;

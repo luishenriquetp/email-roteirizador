@@ -22,6 +22,7 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
     setDestination(destination)
     setClientInfo(clientInfo)
     setLoading(false)
+    setError(response.data.statusCode === 500)
   }
   catch (error) {
     if (error.response.status) {

@@ -108,3 +108,12 @@ export const Loading = styled.div`
 
 `
 export const Data = styled(Exocard)``
+
+export const ContainerError = styled.div`
+    display:grid;
+    place-items:center;
+    height: 75vh;
+    font-size:30px;
+    font-family:Lato, sans-serif;
+    color:#5D5D5D;
+    `

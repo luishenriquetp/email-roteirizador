@@ -37,20 +37,27 @@ export function Base({ map }) {
     setValueSerie(serie);
   }, [clientInfo]);
 
+
+
   return (
     <S.Container>
       <Header />
       <S.Content>
         {clientInfo && clientInfo?.tipoMensagem === '3' ? (
-          <Feedback valueFilial={valueFilial} valueDocmento={valueDocumento} valueSerie={valueSerie} clientInfo={clientInfo} />
+          <Feedback valueFilial={valueFilial} valueDocumento={valueDocumento} valueSerie={valueSerie} clientInfo={clientInfo} error={error} />
         ) : (
           <S.MapContainer>
             {loading ? (
-              <div>Carregando....</div>
+              <S.ContainerError>
+              <div>Carregando...</div>
+              </S.ContainerError>
             ) : (
               <>
                 {error
-                    ? <p>Erro</p>
+                    ? <S.ContainerError>
+
+                      <p>Erro ao carregar as informações.</p>
+                    </S.ContainerError>
                     : (
                         <>
                         <S.MapTitle>

@@ -48,10 +48,16 @@ export const DescriptionCard1 = styled.div`
 export const LeftCard1 = styled.div`
 border-right: 1px solid #ccc;
 width:50%;
+@media (max-width:400px) {
+        border:none;
+    }
 `
 
 export const RightCard1 = styled.div`
     padding-left:15px;
+    @media (max-width:400px) {
+        padding-left:0px;
+    }
 `
 
 export const Button = styled.a`
