@@ -10,7 +10,7 @@ import MapPage from '../map';
 import { getLocation } from '../../services/location/getLocation';
 import GridLoader from 'react-spinners/GridLoader';
 
-export function Base({ map }) {
+export function Base() {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const [clientInfo, setClientInfo] = useState(null);
@@ -77,7 +77,7 @@ export function Base({ map }) {
                         <Steps />
                       </S.StepsContainer>
                       <S.Data>
-                        <Order clientInfo={clientInfo} />
+                        <Order clientInfo={clientInfo} link={clientInfo?.linkAssinatura} />
                       </S.Data>
                     </>
                   )}

@@ -1,10 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL:'https://wr1oqch0bk.execute-api.us-east-1.amazonaws.com/dev/barramento/v1/pesquisaSatisfacao'
-
+    baseURL: process.env.REACT_APP_END_POINT_FEEDBACK
 })
 
-const apiKey = 'jsy17w4Vk46Fil0ZdHhxN7xxFkAfWYv03kJe330l'
-
-export {api, apiKey}
+export { api }

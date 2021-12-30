@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { convertToRem } from '../../utils/convertToRem'
-import {darken} from 'polished'
+import { darken } from 'polished'
 
 export const Container = styled.div`
     padding:10px;
@@ -80,13 +80,50 @@ export const Button = styled.a`
         margin-right:10px;
     }
     &:hover {
-        background: ${darken(0.1,'#BA000A')};
+        background: ${darken(0.1, '#BA000A')};
     }
 
 
-    @media (max-width:740px) {
-        width:170px;
-        height:40px;
+    @media (max-width: 500px) {
+        width: 90%;
+        height:50px;
         font-size:${convertToRem(14)};
     }
+`
+
+export const NoLink = styled.button`
+    border: none;
+    outline: none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700px;
+    font-size:${convertToRem(18)};
+    color:#fff;
+    border-radius:10px;
+    background: #BA000A;
+    cursor:pointer;
+    width:280px;
+    height:55px;
+    margin:30px auto;
+    font-family:Lato, sans-serif;
+    font-weight:700;
+    svg {
+        margin-right:10px;
+    }
+    &:hover {
+        background: ${darken(0.1, '#BA000A')};
+    }
+
+
+    @media (max-width: 500px) {
+        width: 90%;
+        height:50px;
+        font-size:${convertToRem(14)};
+    }
+`
+
+export const NoLinkContainer = styled.div`
+text-align: center;
+color: #f00;
 `

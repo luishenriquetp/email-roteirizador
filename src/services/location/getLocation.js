@@ -1,11 +1,11 @@
-import { api, apiKey } from './api'
+import { api } from './api'
 
-export const getLocation = async ({ token, setOrigin, setDestination, setClientInfo, setError,setLoading }) => {
+export const getLocation = async ({ token, setOrigin, setDestination, setClientInfo, setError, setLoading }) => {
   try {
     setLoading(true)
     const response = await api.get(`/${token}`, {
       headers: {
-        'x-api-key': apiKey
+        'x-api-key': process.env.REACT_APP_API_KEY
       }
     })
     const originLat = response.data.message?.geoLocalizacaoMotorista?.latitude
@@ -17,7 +17,7 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
     const destination = { lat: parseFloat(destinationLat), lng: parseFloat(destinationLong) }
 
     const clientInfo = response.data.message
-    
+
     setOrigin(origin)
     setDestination(destination)
     setClientInfo(clientInfo)
