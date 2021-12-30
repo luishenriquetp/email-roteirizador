@@ -45,11 +45,11 @@ export function Feedback({
 
   return (
     <S.Container>
-      {error ? (
+{/*       {error ? (
         <Error />
-      ) : (
+      ) : ( */}
         <>
-          {clientInfo.servicoAvaliado === 'true' && (
+          {clientInfo.servicoAvaliado === 'false' && (
             <S.FeedbackContainer>
               <S.TitleCard>
                 Experiência no Atendimento
@@ -96,7 +96,7 @@ export function Feedback({
             <Order clientInfo={clientInfo} button={clientInfo?.tipoServico === 'entrega'} link={clientInfo?.linkAssinatura} />
           </S.Data>
         </>
-      )}
+{/*       )} */}
     </S.Container>
   );
 }
