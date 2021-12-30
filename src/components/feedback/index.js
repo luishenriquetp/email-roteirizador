@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Rate } from '../rate';
@@ -7,6 +7,7 @@ import { postFeedback } from '../../services/feedback/postFeedback';
 import * as S from './styles';
 import { StepsFull } from '../stepsfull';
 import { Order } from '../order';
+import { NoFeedback } from '../noFeedback'
 
 const Error = () => (
   <S.ContainerError>
@@ -25,6 +26,7 @@ export function Feedback({
   const [textValue, setTextValue] = useState();
   const [feedback, setFeedback] = useState();
   const [loading, setLoading] = useState(false);
+  const [isSend, setIsSend] = useState(false)
 
   const handleChange = (e) => setTextValue(e);
   const handleAddRate = (rate) => setRateValue(rate);
@@ -34,10 +36,16 @@ export function Feedback({
       postFeedback({
         rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie,
       });
+      setIsSend(true)
     } else {
       setFeedback('Por favor, preencha alguma nota antes de enviar a avaliação')
+      setIsSend(false)
     }
   };
+
+  useEffect(() => {
+    clientInfo.servicoAvaliado === 'true' ? setIsSend(true) : setIsSend(false)
+  }, [clientInfo])
 
   const override = css`
     border: 3px solid #fff;
@@ -45,11 +53,13 @@ export function Feedback({
 
   return (
     <S.Container>
-{/*       {error ? (
+      {error ? (
         <Error />
-      ) : ( */}
+      ) : (
         <>
-          {clientInfo.servicoAvaliado === 'false' && (
+          {isSend ? (
+            <NoFeedback />
+          ) : (
             <S.FeedbackContainer>
               <S.TitleCard>
                 Experiência no Atendimento
@@ -96,7 +106,7 @@ export function Feedback({
             <Order clientInfo={clientInfo} button={clientInfo?.tipoServico === 'entrega'} link={clientInfo?.linkAssinatura} />
           </S.Data>
         </>
-{/*       )} */}
+      )}
     </S.Container>
   );
 }

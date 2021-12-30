@@ -14,9 +14,6 @@ export const Container = styled.div`
   color:#fff;
   padding: 0 80px;
 
-    @media screen and (max-width: 991px) {
-      margin-left: -15px;
-    }
     @media screen and (max-width: 610px) {
      padding: 0 30px;
     }

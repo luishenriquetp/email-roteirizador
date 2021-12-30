@@ -7,6 +7,10 @@ export const Container = styled.div`
     align-items:center;
     justify-content:space-between;
     margin:70px auto;
+
+    @media (max-width: 500px) {
+        width: 90%;
+    }
 `
 
 export const Step = styled.div`
@@ -24,7 +28,11 @@ export const Line = styled.div`
     margin-bottom:21px;
     @media (max-width:740px) {
         margin-bottom:40px;
-        width:80%;
+        width:100%;
+    }
+
+    @media (max-width: 550px) {
+        width: 90%;
     }
 `
 

@@ -1,9 +1,9 @@
-import {api, apiKey} from './api'
+import { api } from './feedback'
 
-export const postFeedback = async({rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie}) => {
+export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie }) => {
 
   const body = {
-    'pesquisa':{
+    'pesquisa': {
       "filialOrigem": valueFilial,
       "documento": valueDocumento,
       "serie": valueSerie,
@@ -13,14 +13,14 @@ export const postFeedback = async({rateValue, textValue, setFeedback, setLoading
   }
   try {
     setLoading(true)
-    await api.post('', body , {
+    await api.post('', body, {
       headers: {
-        'x-api-key': apiKey
+        'x-api-key': process.env.REACT_APP_API_KEY
       }
     })
     setLoading(false)
     setFeedback('Feedback enviado com sucesso!')
-  } catch(error) {
+  } catch (error) {
     setLoading(false)
     setFeedback(error?.response?.data?.title)
   }
