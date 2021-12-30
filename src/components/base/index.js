@@ -9,6 +9,8 @@ import { Footer } from '../footer';
 import MapPage from '../map';
 import { getLocation } from '../../services/location/getLocation';
 import GridLoader from 'react-spinners/GridLoader';
+import Lottie from 'react-lottie';
+import truck from '../../lotties/truck.json';
 
 export function Base() {
   const [origin, setOrigin] = useState(null);
@@ -38,6 +40,15 @@ export function Base() {
     setValueSerie(serie);
   }, [clientInfo]);
 
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: truck,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
+
 
 
   return (
@@ -57,7 +68,15 @@ export function Base() {
               <>
                 {error
                   ? <S.ContainerError>
-                    <p>Erro ao carregar as informações.</p>
+                    <div>
+                      <Lottie
+                        options={defaultOptions}
+                        height={400}
+                        width={400}
+                      />
+                    </div>
+                    <strong>Oops! Nosso caminhão está com problemas!</strong>
+                    <p>Fique tranquilo! estamos cientes e trabalhando na correção.</p>
                   </S.ContainerError>
                   : (
                     <>

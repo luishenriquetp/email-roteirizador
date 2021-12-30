@@ -7,6 +7,7 @@ height: 500px;
 `
 
 export const Content = styled(Exocard)`
+height: 100%;
 display: flex;
 flex-direction: column;
 align-items: center;

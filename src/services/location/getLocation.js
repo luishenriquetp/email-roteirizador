@@ -5,7 +5,7 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
     setLoading(true)
     const response = await api.get(`/${token}`, {
       headers: {
-        'x-api-key': process.env.REACT_APP_API_KEY
+        // 'x-api-key': process.env.REACT_APP_API_KEY
       }
     })
     const originLat = response.data.message?.geoLocalizacaoMotorista?.latitude
@@ -23,10 +23,12 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
     setClientInfo(clientInfo)
     setLoading(false)
     setError(response.data.statusCode === 500)
+    setError(response.data.statusCode === 403)
   }
   catch (error) {
-    if (error.response.status) {
+    if (error) {
       setError(true)
+      setLoading(false)
     }
   }
 }

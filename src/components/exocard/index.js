@@ -1,7 +1,7 @@
 import * as S from './styles'
 
-export const Exocard = ({children, flex}) => (
-    <S.Container flex={flex}>
+export const Exocard = ({ children, ...rest }) => (
+    <S.Container {...rest}>
         {children}
     </S.Container>
 
