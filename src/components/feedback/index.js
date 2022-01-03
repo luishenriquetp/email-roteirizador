@@ -34,9 +34,8 @@ export function Feedback({
   const handlePostFeedback = () => {
     if (rateValue) {
       postFeedback({
-        rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie,
+        rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie , setIsSend
       });
-      setIsSend(true)
     } else {
       setFeedback('Por favor, preencha alguma nota antes de enviar a avaliação')
       setIsSend(false)

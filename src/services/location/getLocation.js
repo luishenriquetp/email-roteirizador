@@ -5,7 +5,7 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
     setLoading(true)
     const response = await api.get(`/${token}`, {
       headers: {
-        // 'x-api-key': process.env.REACT_APP_API_KEY
+        'x-api-key': process.env.REACT_APP_API_KEY
       }
     })
     const originLat = response.data.message?.geoLocalizacaoMotorista?.latitude

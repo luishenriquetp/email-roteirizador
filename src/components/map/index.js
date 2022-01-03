@@ -13,7 +13,7 @@ const MapPage = ({origin, destination}) => {
   const [responseAPI, setResponseAPI] = useState(null);
   const [errorAPI, setErrorAPI] = useState(null);
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey:'AIzaSyDhU6foApXRtkuTo4_aT1RBi6Ek4ItUk8c',
+    googleMapsApiKey:process.env.REACT_APP_GOOGLE_API_KEY
   })
 
   const directionsServiceOptions =

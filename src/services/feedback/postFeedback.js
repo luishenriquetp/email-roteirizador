@@ -1,6 +1,6 @@
 import { api } from './feedback'
 
-export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie }) => {
+export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie , setIsSend}) => {
 
   const body = {
     'pesquisa': {
@@ -11,6 +11,7 @@ export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoadi
       "motivoNota": textValue || ''
     }
   }
+  setIsSend(false)
   try {
     setLoading(true)
     await api.post('', body, {
@@ -18,11 +19,13 @@ export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoadi
         'x-api-key': process.env.REACT_APP_API_KEY
       }
     })
-    setLoading(false)
     setFeedback('Feedback enviado com sucesso!')
-  } catch (error) {
     setLoading(false)
+    setIsSend(true)
+  } catch (error) {
     setFeedback(error?.response?.data?.title)
+    setLoading(false)
+    setIsSend(false)
   }
 
 }
