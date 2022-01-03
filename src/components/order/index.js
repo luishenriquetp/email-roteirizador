@@ -4,20 +4,37 @@ import { BsFileEarmarkPost } from "react-icons/bs"
 import { useState, useEffect } from 'react'
 import { encryptName } from './encryptName'
 
-
 export const Order = ({ clientInfo, link }) => {
-
     const [nameEncrypt, setNameEncrypt] = useState()
     const [NoLink, setNoLink] = useState(false)
+
+    const handleNoLink = () => setNoLink(true)
 
     useEffect(() => {
         clientInfo && setNameEncrypt(encryptName(clientInfo?.nomeCliente))
     }, [clientInfo])
+    
+    const noLinkConstant = clientInfo?.tipoMensagem === '3' && clientInfo.tipoServico === 'entrega' && link === ''
+    const hasLinkConstant = clientInfo?.tipoMensagem === '3' && clientInfo.tipoServico === 'entrega' && link !== ''
 
-    const handleNoLink = () => setNoLink(true)
+    const NotLink = () => (
+        <S.NoLinkContainer>
+            <S.NoLink onClick={handleNoLink}>
+               <BsFileEarmarkPost />
+                Comprovante de entrega
+            </S.NoLink>
+            {NoLink && 'Documento não encontrado'}
+        </S.NoLinkContainer>
+    )
+    
+    const HasLink = () => (
+        <S.Button href={link} target='_blank'>
+            <BsFileEarmarkPost />
+            Comprovante de entrega
+        </S.Button>
+    )
 
     return (
-
         <S.Container>
             {clientInfo?.nomeCliente && (
                 <>
@@ -80,20 +97,8 @@ export const Order = ({ clientInfo, link }) => {
                             </S.DescriptionCard1>
                         </S.RightCard1>
                     </Card>
-                    {link === '' ? (
-                        <S.NoLinkContainer>
-                            <S.NoLink onClick={handleNoLink}>
-                                <BsFileEarmarkPost />
-                                Comprovante de entrega
-                            </S.NoLink>
-                            {NoLink && 'Documento não encontrado'}
-                        </S.NoLinkContainer>
-                    ) : (
-                        <S.Button href={link} target='_blank'>
-                            <BsFileEarmarkPost />
-                            Comprovante de entrega
-                        </S.Button>
-                    )}
+                  {noLinkConstant && <NotLink />}
+                  {hasLinkConstant && <HasLink />}
                 </>
             )}
 

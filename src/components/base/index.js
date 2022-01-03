@@ -75,8 +75,8 @@ export function Base() {
                         width={400}
                       />
                     </div>
-                    <strong>Oops! Nosso caminhão está com problemas!</strong>
-                    <p>Fique tranquilo! estamos cientes e trabalhando na correção.</p>
+                    <strong>Oops! Ocorreu um problema para exibir o conteúdo solicitado!</strong>
+                    <p>Fique tranquilo! Estamos cientes e trabalhando na correção.</p>
                   </S.ContainerError>
                   : (
                     <>

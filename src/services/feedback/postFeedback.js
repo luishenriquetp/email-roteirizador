@@ -1,4 +1,4 @@
-import { api } from './feedback'
+import { api } from './api'
 
 export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie , setIsSend}) => {
 
@@ -16,7 +16,7 @@ export const postFeedback = async ({ rateValue, textValue, setFeedback, setLoadi
     setLoading(true)
     await api.post('', body, {
       headers: {
-        'x-api-key': process.env.REACT_APP_API_KEY
+        'x-api-key': process.env.REACT_APP_API_FDB_KEY
       }
     })
     setFeedback('Feedback enviado com sucesso!')
