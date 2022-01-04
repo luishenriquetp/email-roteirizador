@@ -42,10 +42,6 @@ export function Feedback({
     }
   };
 
-  useEffect(() => {
-    clientInfo.servicoAvaliado === 'true' ? setIsSend(true) : setIsSend(false)
-  }, [clientInfo])
-
   const override = css`
     border: 3px solid #fff;
   `;

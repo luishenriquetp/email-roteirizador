@@ -56,7 +56,7 @@ export function Base() {
       <Header />
       <S.Content>
         {clientInfo && clientInfo?.tipoMensagem === '3' ? (
-          <Feedback error={error} valueFilial={valueFilial} valueDocumento={valueDocumento} valueSerie={valueSerie} clientInfo={clientInfo} error={error} />
+          <Feedback error={error} valueFilial={valueFilial} valueDocumento={valueDocumento} valueSerie={valueSerie} clientInfo={clientInfo} />
         ) : (
           <S.MapContainer>
             {loading ? (
