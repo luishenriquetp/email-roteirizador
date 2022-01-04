@@ -52,7 +52,9 @@ export function Feedback({
         <Error />
       ) : (
         <>
-          {isSend ? (
+        {clientInfo.servicoAvaliado === 'true' ? <></> : (
+          <>
+             {isSend ? (
             <NoFeedback />
           ) : (
             <S.FeedbackContainer>
@@ -96,6 +98,8 @@ export function Feedback({
               </S.Button>
             </S.FeedbackContainer>
           )}
+          </>
+        )}
           <StepsFull />
           <S.Data>
             <Order clientInfo={clientInfo} button={clientInfo?.tipoServico === 'entrega'} link={clientInfo?.linkAssinatura} />
