@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { Avaliacao } from "../pages/avaliacao"
-import { 404 } from "../components/404"
+import { NotFound } from "../components/notFound"
 
 export const Routes = () => (
     <Router>
@@ -9,7 +9,7 @@ export const Routes = () => (
     <Avaliacao />
     </Route>
     <Route path="*">
-    <404/>
+    <NotFound/>
     </Route>
     </Switch>
     </Router>

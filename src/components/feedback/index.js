@@ -28,11 +28,11 @@ export function Feedback({
   const [loading, setLoading] = useState(false);
   const [isSend, setIsSend] = useState(false)
 
-  const handleChange = (e) => setTextValue(e);
-  const handleAddRate = (rate) => setRateValue(rate);
+  const handleChange = (e) => setTextValue(e)
+  const handleAddRate = (rate) => setRateValue(rate)
 
   const handlePostFeedback = () => {
-    if (rateValue) {
+    if (rateValue || rateValue === 0) {
       postFeedback({
         rateValue, textValue, setFeedback, setLoading, valueFilial, valueDocumento, valueSerie , setIsSend
       });
