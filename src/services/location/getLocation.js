@@ -27,7 +27,7 @@ export const getLocation = async ({ token, setOrigin, setDestination, setClientI
   }
   catch (error) {
     if (error) {
-      setError(true)
+      setError(error.response.data)
       setLoading(false)
     }
   }

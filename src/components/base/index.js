@@ -11,12 +11,13 @@ import { getLocation } from '../../services/location/getLocation';
 import GridLoader from 'react-spinners/GridLoader';
 import Lottie from 'react-lottie';
 import truck from '../../lotties/truck.json';
+import clock from '../../lotties/clock.json';
 
 export function Base() {
   const [origin, setOrigin] = useState(null);
   const [destination, setDestination] = useState(null);
   const [clientInfo, setClientInfo] = useState(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState('');
   const [valueFilial, setValueFilial] = useState();
   const [valueDocumento, setValueDocumento] = useState();
   const [valueSerie, setValueSerie] = useState();
@@ -40,7 +41,7 @@ export function Base() {
     setValueSerie(serie);
   }, [clientInfo]);
 
-  const defaultOptions = {
+  const truckOption = {
     loop: true,
     autoplay: true,
     animationData: truck,
@@ -49,7 +50,14 @@ export function Base() {
     }
   };
 
-
+  const clockOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: clock,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
 
   return (
     <S.Container>
@@ -66,11 +74,24 @@ export function Base() {
               </S.ContainerError>
             ) : (
               <>
-                {error
-                  ? <S.ContainerError>
+                {error.message?.mensagem === 'link expirado' 
+                  ? 
+                  <S.ContainerError>
                     <div>
                       <Lottie
-                        options={defaultOptions}
+                        options={clockOptions}
+                        height={400}
+                        width={400}
+                      />
+                    </div>
+                    <strong>Este conteúdo não está mais disponível!</strong>
+                    <p>O link que você seguiu pode ter expirado.</p>
+                  </S.ContainerError>
+                  : error.message?.statusCode === 401 ? (
+                  <S.ContainerError>
+                    <div>
+                      <Lottie
+                        options={truckOption}
                         height={400}
                         width={400}
                       />
@@ -78,7 +99,8 @@ export function Base() {
                     <strong>Oops! Ocorreu um problema para exibir o conteúdo solicitado!</strong>
                     <p>Fique tranquilo! Estamos cientes e trabalhando na correção.</p>
                   </S.ContainerError>
-                  : (
+                  ): (
+                  (
                     <>
                       <S.MapTitle>
                         Olá
@@ -99,6 +121,7 @@ export function Base() {
                         <Order clientInfo={clientInfo} link={clientInfo?.linkAssinatura} />
                       </S.Data>
                     </>
+                  )
                   )}
               </>
             )}
